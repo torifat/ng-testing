@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Testing AngularJS Application</title>
+    <link rel="stylesheet" type="text/css" href="build/build.css">
+  </head>
+  <body>
+    <article>
+      <section data-bespoke-state="white">
+        <h1 class="red">Testing</h1><img src="./images/ng-logo.png">
+        <h2 class="alt shadow">Application</h2>
+      </section>
+      <section>
+        <h1 class="yellow shadow">Why?</h1>
+      </section>
+      <section>
+        <h1 class="yellow">tl;dr</h1>
+        <h2 class="shadow">testing is<span class="fun"> fun</span></h2>
+      </section>
+      <section data-bespoke-state="js" class="logo logo--chuck"></section>
+      <section data-bespoke-state="js" class="logo logo--test"></section>
+      <section data-bespoke-state="js">
+        <h3 class="bullet sub">types of testing in</h3>
+        <h2 class="shadow">AngularJS</h2>
+        <ul class="large">
+          <li>Unit Testing</li>
+          <li>E2E Testing</li>
+        </ul>
+      </section>
+      <section data-bespoke-state="js">
+        <h1>Unit Testing</h1>
+      </section>
+      <section data-bespoke-state="js">
+        <h3 class="bullet sub">prerequisites for</h3>
+        <h2 class="shadow">Unit Testing</h2>
+        <ul class="large">
+          <li>Testing Framework</li>
+          <li>Test Runner</li>
+        </ul>
+      </section>
+      <section>
+        <h2 class="yellow shadow">JavaScript Testing</h2>
+        <h1 class="shadow">101</h1>
+      </section>
+      <section data-bespoke-state="js">
+        <h2 class="bullet shadow">Testing Framework</h2>
+        <ul class="large">
+          <li><a href="http://jasmine.github.io/">Jasmine</a></li>
+          <li><a href="http://visionmedia.github.io/mocha/">Mocha</a></li>
+        </ul>
+      </section>
+      <section data-bespoke-state="jasmine" class="logo logo--jasmine"></section>
+      <section data-bespoke-state="jasmine">
+        <h2 class="bullet">Major Functions</h2>
+        <ul class="large">
+          <li><code>describe</code></li>
+          <li><code>it</code></li>
+          <li><code>expect</code></li>
+          <li><code>beforeEach</code></li>
+          <li><code>afterEach</code></li>
+        </ul>
+      </section>
+      <section>
+        <pre class="language-javascript"><code>describe('Conference', function () {
+
+});
+</code></pre>
+      </section>
+      <section>
+        <pre class="language-javascript"><code>describe('Conference', function () {
+
+  it('should have a title', function () {
+  
+  });
+  
+});
+</code></pre>
+      </section>
+      <section>
+        <pre class="language-javascript"><code>describe('Conference', function () {
+
+  it('should have a title', function () {
+  
+    expect(conference.title).toBeDefined();
+    
+  });
+  
+});
+</code></pre>
+      </section>
+      <section data-bespoke-state="jasmine">
+        <h2 class="bullet">Matchers</h2>
+        <ul class="large">
+          <li><code>.toBe(7)</code></li>
+          <li><code>.toEqual(obj)</code></li>
+          <li><code>.toTruthy()</code></li>
+          <li><code>.toFalsy()</code></li>
+          <li><code>.toBeDefined()</code></li>
+          <li><code>.toBeUndefined()</code></li>
+        </ul>
+      </section>
+      <section data-bespoke-state="jasmine">
+        <h2 class="bullet">Matchers</h2>
+        <ul class="large">
+          <li><code>.toMatch(/[a-z]+/)</code></li>
+          <li><code>.toContain('Hello')</code></li>
+          <li><code>.toBeLessThan(10)</code></li>
+          <li><code>.toBeGreaterThan(5)</code></li>
+          <li><code>.toBeNull()</code></li>
+          <li><code>.toThrow()</code></li>
+        </ul>
+      </section>
+      <section data-bespoke-state="jasmine">
+        <h2 class="bullet">Negation</h2>
+        <ul class="large">
+          <li><code>.not.toBe(7)</code></li>
+          <li><code>.not.toBeNull()</code></li>
+          <li><code>.not.toThrow()</code></li>
+        </ul>
+      </section>
+      <section data-bespoke-state="jasmine">
+        <h2 class="bullet">Spy</h2>
+        <ul class="large">
+          <li><code>.and.callThrough()</code></li>
+          <li><code>.and.returnValue(100)</code></li>
+          <li><code>.and.callFake(callback)</code></li>
+          <li><code>.and.throwError(error)</code></li>
+          <li><code>.and.stub()</code></li>
+        </ul>
+      </section>
+      <section data-bespoke-state="jasmine">
+        <h2 class="bullet">Matchers</h2>
+        <ul class="large">
+          <li><code>.toHaveBeenCalled()</code></li>
+          <li><code>.toHaveBeenCalledWith(params)</code></li>
+        </ul>
+      </section>
+      <section>
+        <pre class="language-javascript"><code>var Facebook = {
+  getFriends: function () {
+    // FACEBOOK_FRIENDS_URL
+    // 'https://www.facebook.com/friends.json'
+    return $.getJSON(FACEBOOK_FRIENDS_URL);
+  }
+};
+
+</code></pre>
+      </section>
+      <section>
+        <pre class="language-javascript"><code>describe('Facebook Library', function () {
+
+  beforeEach(function () {
+    spyOn($, 'getJSON').returnValue();
+  });
+  
+  it('should call jQuery getJSON properly', function () {
+    Facebook.getFriends();
+    expect($.getJSON).toHaveBeenCalledWith(FACEBOOK_FRIENDS_URL);
+  });
+  
+});
+</code></pre>
+      </section>
+      <section data-bespoke-state="js">
+        <h2 class="bullet shadow">Test Runner</h2>
+        <ul class="large">
+          <li><a href="http://karma-runner.github.io/">Karma</a></li>
+          <li><a href="https://github.com/airportyh/testem">Test'em</a></li>
+        </ul>
+      </section>
+      <section data-bespoke-state="karma" class="logo logo--karma"></section>
+      <section data-bespoke-state="karma">
+        <h2 class="shadow">Install CLI</h2>
+        <pre class="language-bash"><code>$ npm install -g karma-cli</code></pre>
+      </section>
+      <section data-bespoke-state="karma">
+        <h2 class="shadow">Initialize</h2>
+        <h3 class="shadow">It will create a<code> karma.conf.js</code></h3>
+        <pre class="language-bash"><code>$ karma init</code></pre>
+      </section>
+      <section data-bespoke-state="karma">
+        <h2 class="shadow">Install</h2>
+        <pre class="language-bash"><code>$ npm install --save-dev karma</code></pre>
+      </section>
+      <section data-bespoke-state="karma">
+        <h2 class="shadow">Install Plugins</h2>
+        <pre class="language-bash"><code>$ npm install --save-dev karma-jasmine
+$ npm install --save-dev karma-chrome-launcher
+$ npm install --save-dev karma-coverage
+</code></pre>
+      </section>
+      <section data-bespoke-state="karma">
+        <h2 class="shadow">Run</h2>
+        <pre class="language-bash"><code>$ karma start
+</code></pre>
+      </section>
+      <section data-bespoke-state="jasmine">
+        <h2>Test</h2>
+        <h1>AngularJS</h1>
+        <h2>Module</h2>
+      </section>
+      <section data-bespoke-state="karma">
+        <h2 class="shadow">Load Module</h2>
+        <pre class="language-javascript"><code>beforeEach( module('myApp.moduleName') );</code></pre>
+      </section>
+      <section data-bespoke-state="karma">
+        <h2 class="shadow">Load Module</h2>
+        <pre class="language-javascript"><code>describe('Angular Module', function () {
+
+  beforeEach(module('myApp.moduleName'));
+  
+  it('should do something awesome', function () {
+    expect(true).toBeTruthy();
+  }
+  
+});
+</code></pre>
+      </section>
+      <section data-bespoke-state="karma">
+        <h2 class="shadow">Inject Module</h2>
+        <pre class="language-javascript"><code>beforeEach(inject(function(_$rootScope_, _MyService_) {
+
+}));
+
+</code></pre>
+      </section>
+      <section data-bespoke-state="karma">
+        <h2 class="shadow">Test Filter</h2>
+        <pre class="language-javascript"><code>describe('Some Filter', function () {
+  var someFilter;
+  
+  beforeEach(module('myApp.filters'));
+  
+  beforeEach(inject(function(_$filter_) {
+    someFilter = _$filter_('someFilter');
+  }));
+  
+  it('should do something', function () {
+    expect(someFilter(input)).toEqual(output);
+  }
+});
+</code></pre>
+      </section>
+      <section data-bespoke-state="karma">
+        <h2 class="shadow">Test Service</h2>
+        <pre class="language-javascript"><code>describe('Some Service', function () {
+  var someService;
+  
+  beforeEach(module('myApp.services'));
+  
+  beforeEach(inject(function(_someService_) {
+    someService = _someService_;
+  }));
+  
+  it('should do something', function () {
+    expect(someService.foo()).toEqual(bar);
+  }
+});
+</code></pre>
+      </section>
+      <section data-bespoke-state="karma">
+        <h2 class="shadow">Test Directive</h2>
+        <pre class="language-javascript"><code>describe('User Profile Directive', function () {
+  var element, $scope, $compile;
+  beforeEach(module('myDirectives'));
+  beforeEach(inject(function(_$rootScope_, _$compile_) {
+    $compile = _$compile_;
+    $scope = _$rootScope_.$new();
+  }));
+  
+  it('should do something', function () {
+    element = $compile('&lt;user-profile&gt;')($scope);
+    $scope.$digest();
+    expect(element.find('something').length).toBeGreaterThan(0);
+  }
+});
+</code></pre>
+      </section>
+      <section data-bespoke-state="karma">
+        <h1 class="demo shadow">DEMO</h1>
+      </section>
+      <section>
+        <h1 class="thanks">Thank You</h1>
+        <h3><a href="https://twitter.com/rifat" class="twitter">@rifat </br></a><a href="https://fb.me/rifat" class="fb">fb.me/rifat</a></h3><img src="images/profile.jpg" class="avatar avatar--small">
+      </section>
+    </article>
+    <script src="build/build.js"></script>
+  </body>
+</html>
