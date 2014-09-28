@@ -1,0 +1,339 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title Testing AngularJS Application
+
+    link(rel='stylesheet', type='text/css', href='build/build.css')
+
+  body
+
+    article
+
+      section(data-bespoke-state='white')
+        h1.red Testing
+        img(src='./images/ng-logo.png')
+        h2.alt.shadow Application
+
+      section
+        h1.yellow.shadow Why?
+
+      section
+        h1.yellow tl;dr
+        h2.shadow testing is
+          span.fun  fun
+
+      section.logo.logo--chuck(data-bespoke-state='js')
+
+      section.logo.logo--test(data-bespoke-state='js')
+
+      section(data-bespoke-state='js')
+        h3.bullet.sub types of testing in
+        h2.shadow AngularJS
+        ul.large
+          li Unit Testing
+          li E2E Testing
+
+      section(data-bespoke-state='js')
+        h1 Unit Testing
+
+      section(data-bespoke-state='js')
+        h3.bullet.sub prerequisites for
+        h2.shadow Unit Testing
+        ul.large
+          li Testing Framework
+          li Test Runner
+
+      section
+        h2.yellow.shadow JavaScript Testing
+        h1.shadow 101
+
+      section(data-bespoke-state='js')
+        h2.bullet.shadow Testing Framework
+        ul.large
+          li
+            a(href='http://jasmine.github.io/') Jasmine
+          li
+            a(href='http://visionmedia.github.io/mocha/') Mocha
+
+      section.logo.logo--jasmine(data-bespoke-state='jasmine')
+
+      section(data-bespoke-state='jasmine')
+        h2.bullet Major Functions
+        ul.large
+          li
+            code describe
+          li
+            code it
+          li
+            code expect
+          li
+            code beforeEach
+          li
+            code afterEach
+
+      section
+        pre.language-javascript
+          code.
+            describe('Conference', function () {
+
+            });
+
+      section
+        pre.language-javascript
+          code.
+            describe('Conference', function () {
+
+              it('should have a title', function () {
+
+              });
+
+            });
+
+      section
+        pre.language-javascript
+          code.
+            describe('Conference', function () {
+
+              it('should have a title', function () {
+
+                expect(conference.title).toBeDefined();
+
+              });
+
+            });
+
+      section(data-bespoke-state='jasmine')
+        h2.bullet Matchers
+        ul.large
+          li
+            code .toBe(7)
+          li
+            code .toEqual(obj)
+          li
+            code .toTruthy()
+          li
+            code .toFalsy()
+          li
+            code .toBeDefined()
+          li
+            code .toBeUndefined()
+
+      section(data-bespoke-state='jasmine')
+        h2.bullet Matchers
+        ul.large
+          li
+            code .toMatch(/[a-z]+/)
+          li
+            code .toContain('Hello')
+          li
+            code .toBeLessThan(10)
+          li
+            code .toBeGreaterThan(5)
+          li
+            code .toBeNull()
+          li
+            code .toThrow()
+
+      section(data-bespoke-state='jasmine')
+        h2.bullet Negation
+        ul.large
+          li
+            code .not.toBe(7)
+          li
+            code .not.toBeNull()
+          li
+            code .not.toThrow()
+
+      section(data-bespoke-state='jasmine')
+        h2.bullet Spy
+        ul.large
+          li
+            code .and.callThrough()
+          li
+            code .and.returnValue(100)
+          li
+            code .and.callFake(callback)
+          li
+            code .and.throwError(error)
+          li
+            code .and.stub()
+
+      section(data-bespoke-state='jasmine')
+        h2.bullet Matchers
+        ul.large
+          li
+            code .toHaveBeenCalled()
+          li
+            code .toHaveBeenCalledWith(params)
+
+      section
+        pre.language-javascript
+          code.
+            var Facebook = {
+              getFriends: function () {
+                // FACEBOOK_FRIENDS_URL
+                // 'https://www.facebook.com/friends.json'
+                return $.getJSON(FACEBOOK_FRIENDS_URL);
+              }
+            };
+
+
+      section
+        pre.language-javascript
+          code.
+            describe('Facebook Library', function () {
+
+              beforeEach(function () {
+                spyOn($, 'getJSON').returnValue();
+              });
+
+              it('should call jQuery getJSON properly', function () {
+                Facebook.getFriends();
+                expect($.getJSON).toHaveBeenCalledWith(FACEBOOK_FRIENDS_URL);
+              });
+
+            });
+
+      section(data-bespoke-state='js')
+        h2.bullet.shadow Test Runner
+        ul.large
+          li
+            a(href='http://karma-runner.github.io/') Karma
+          li
+            a(href='https://github.com/airportyh/testem') Test'em
+
+      section.logo.logo--karma(data-bespoke-state='karma')
+
+      section(data-bespoke-state='karma')
+        h2.shadow Install CLI
+        pre.language-bash
+          code $ npm install -g karma-cli
+
+      section(data-bespoke-state='karma')
+        h2.shadow Initialize
+        h3.shadow It will create a
+          code  karma.conf.js
+        pre.language-bash
+          code $ karma init
+
+      section(data-bespoke-state='karma')
+        h2.shadow Install
+        pre.language-bash
+          code $ npm install --save-dev karma
+
+      section(data-bespoke-state='karma')
+        h2.shadow Install Plugins
+        pre.language-bash
+          code.
+            $ npm install --save-dev karma-jasmine
+            $ npm install --save-dev karma-chrome-launcher
+            $ npm install --save-dev karma-coverage
+
+      section(data-bespoke-state='karma')
+        h2.shadow Run
+        pre.language-bash
+          code.
+            $ karma start
+
+      section(data-bespoke-state='jasmine')
+        h2 Test
+        h1 AngularJS
+        h2 Module
+
+
+      section(data-bespoke-state='karma')
+        h2.shadow Load Module
+        pre.language-javascript
+          code beforeEach( module('myApp.moduleName') );
+
+      section(data-bespoke-state='karma')
+        h2.shadow Load Module
+        pre.language-javascript
+          code.
+            describe('Angular Module', function () {
+
+              beforeEach(module('myApp.moduleName'));
+
+              it('should do something awesome', function () {
+                expect(true).toBeTruthy();
+              }
+
+            });
+
+      section(data-bespoke-state='karma')
+        h2.shadow Inject Module
+        pre.language-javascript
+          code.
+              beforeEach(inject(function(_$rootScope_, _MyService_) {
+
+              }));
+
+
+      section(data-bespoke-state='karma')
+        h2.shadow Test Filter
+        pre.language-javascript
+          code.
+            describe('Some Filter', function () {
+              var someFilter;
+
+              beforeEach(module('myApp.filters'));
+
+              beforeEach(inject(function(_$filter_) {
+                someFilter = _$filter_('someFilter');
+              }));
+
+              it('should do something', function () {
+                expect(someFilter(input)).toEqual(output);
+              }
+            });
+
+      section(data-bespoke-state='karma')
+        h2.shadow Test Service
+        pre.language-javascript
+          code.
+            describe('Some Service', function () {
+              var someService;
+
+              beforeEach(module('myApp.services'));
+
+              beforeEach(inject(function(_someService_) {
+                someService = _someService_;
+              }));
+
+              it('should do something', function () {
+                expect(someService.foo()).toEqual(bar);
+              }
+            });
+
+      section(data-bespoke-state='karma')
+        h2.shadow Test Directive
+        pre.language-javascript
+          code.
+            describe('User Profile Directive', function () {
+              var element, $scope, $compile;
+              beforeEach(module('myDirectives'));
+              beforeEach(inject(function(_$rootScope_, _$compile_) {
+                $compile = _$compile_;
+                $scope = _$rootScope_.$new();
+              }));
+
+              it('should do something', function () {
+                element = $compile('&lt;user-profile&gt;')($scope);
+                $scope.$digest();
+                expect(element.find('something').length).toBeGreaterThan(0);
+              }
+            });
+
+      section(data-bespoke-state='karma')
+        h1.demo.shadow DEMO
+
+      section
+        h1.thanks Thank You
+        h3
+          a.twitter(href='https://twitter.com/rifat') @rifat </br>
+          a.fb(href='https://fb.me/rifat') fb.me/rifat
+        img.avatar.avatar--small(src='images/profile.jpg')
+
+    script(src='build/build.js')
